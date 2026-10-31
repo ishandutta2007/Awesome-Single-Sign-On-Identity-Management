@@ -4,16 +4,18 @@
 
 # 🔐 Awesome Single Sign-On & Identity Management (IAM)
 
+<a href="https://github.com/ishandutta2007/Awesome-Awesome-Awesome"><img src="https://img.shields.io/badge/Awesome-%E2%9C%94-blueviolet?style=flat-square&logo=github" alt="Awesome"/></a><a href="https://discord.gg/jc4xtF58Ve"><img src="https://img.shields.io/badge/Discord-5865F2?style=for-the-badge&logo=discord&logoColor=white" alt="Discord" /></a>
 [![Awesome](https://awesome.re/badge.svg)](https://awesome.re)
 [![License: CC0-1.0](https://img.shields.io/badge/License-CC0_1.0-lightgrey.svg)](LICENSE)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](https://github.com/ishandutta2007/Awesome-Single-Sign-On-Identity-Management/blob/main/README.md)
 [![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](https://github.com/ishandutta2007/Awesome-Single-Sign-On-Identity-Management)
+<a href="https://github.com/ishandutta2007"><img alt="GitHub followers" src="https://img.shields.io/github/followers/ishandutta2007?label=Follow" /></a>
 
 **A curated, production-oriented directory of enterprise Single Sign-On (SSO), Identity & Access Management (IAM), Customer Identity (CIAM), and self-hosted identity providers (IdPs).**
 
 *Covering SAML 2.0, OpenID Connect (OIDC), OAuth 2.0, SCIM 2.0, FIDO2/WebAuthn Passkeys, Zero Trust security, and autonomous AI Agent IAM governance.*
 
-[Sector Overview](#-sector-overview--market-dynamics) • [SaaS Platforms](#-saas--hosted-identity-platforms) • [Open-Source Solutions](#-open-source-identity-projects) • [Architecture Guide](#-frameworks-and-architecture-selection) • [Contributing](#-how-to-contribute)
+[Sector Overview](#-sector-overview--market-dynamics) • [SaaS Platforms](#-saas--hosted-identity-platforms) • [Open-Source Solutions](#-open-source-identity-projects) • [Architecture Guide](#-frameworks-and-architecture-selection) • [Star History](#-star-history) • [Support](#-support) • [Contributing](#-how-to-contribute)
 
 ---
 
@@ -96,6 +98,23 @@ Contributions are warmly welcomed! Help keep this IAM ecosystem directory accura
 3. Submit a Pull Request with a concise summary of updates.
 
 ⭐ **Star this repository** if it helped you navigate the identity management landscape!
+
+---
+
+## 💖 Support
+
+Thank you for exploring this curated guide to Single Sign-On and Identity Management! If you find this directory valuable for your research, team, or projects:
+
+- ⭐ **Star this repository** to help others discover it.
+- 🍴 **Fork it** and contribute your insights, corrections, or tools.
+- 📢 **Share it** with your network, fellow engineers, and security teams.
+- ☕ **Buy a coffee**: Support ongoing maintenance and curated open-source research on the [GitHub Sponsor Dashboard](https://github.com/sponsors/ishandutta2007).
+
+---
+
+## 📈 Star History
+
+[![Star History Chart](https://star-history.dera.page/svg?repos=ishandutta2007/Awesome-Single-Sign-On-Identity-Management&type=date&legend=top-left)](https://star-history.dera.page/#ishandutta2007/Awesome-Single-Sign-On-Identity-Management&type=date&legend=top-left)
 
 ---
 

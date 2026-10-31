@@ -50,7 +50,7 @@ The sector is **moderately concentrated at the mega-enterprise tier**—dominate
 
 All open-source repositories are ranked by GitHub community stargazers (descending) with direct links to repo stargazers and official source code.
 
-| Project | GitHub Stars | License | Primary Tech Stack | Description & Protocols |
+| Project | GitHub_Stars | License | Primary Tech Stack | Description & Protocols |
 | :--- | :--- | :--- | :--- | :--- |
 | **[Keycloak](https://github.com/keycloak/keycloak)** | [![Stars](https://img.shields.io/github/stars/keycloak/keycloak?style=social&color=white)](https://github.com/keycloak/keycloak/stargazers) | Apache-2.0 | Java / Quarkus | The industry-standard open-source IAM and SSO platform. Supports SAML 2.0, OpenID Connect, OAuth 2.0, Kerberos, SCIM 2.0, identity brokering, dynamic user federation, and multi-tenant realm isolation. |
 | **[Authelia](https://github.com/authelia/authelia)** | [![Stars](https://img.shields.io/github/stars/authelia/authelia?style=social&color=white)](https://github.com/authelia/authelia/stargazers) | Apache-2.0 | Go / TypeScript | Lightweight authentication and authorization server acting as an identity portal for reverse proxies (Nginx, Traefik, Caddy, Envoy). Provides 2FA, FIDO2/WebAuthn, TOTP, Duo push, and OIDC provider capabilities. |

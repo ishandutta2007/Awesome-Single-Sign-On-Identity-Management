@@ -1,168 +1,194 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 360" width="100%" height="360" style="background:#0b0f19;border-radius:12px;overflow:hidden;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 260" width="100%" height="100%">
   <defs>
-    <!-- Gradients -->
-    <linearGradient id="bg-grad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#0b0f19"/>
-      <stop offset="50%" stop-color="#111827"/>
-      <stop offset="100%" stop-color="#0f172a"/>
+    <!-- Background Gradients -->
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#070b14"/>
+      <stop offset="50%" stop-color="#0f172a"/>
+      <stop offset="100%" stop-color="#0a0f1d"/>
     </linearGradient>
 
-    <linearGradient id="primary-grad" x1="0%" y1="0%" x2="100%" y2="0%">
+    <!-- Accent & Shield Gradients -->
+    <linearGradient id="shieldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
       <stop offset="0%" stop-color="#38bdf8"/>
       <stop offset="50%" stop-color="#6366f1"/>
       <stop offset="100%" stop-color="#a855f7"/>
     </linearGradient>
 
-    <linearGradient id="accent-cyan" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#06b6d4" stop-opacity="0.8"/>
-      <stop offset="100%" stop-color="#3b82f6" stop-opacity="0.2"/>
+    <linearGradient id="textGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#38bdf8"/>
+      <stop offset="45%" stop-color="#818cf8"/>
+      <stop offset="100%" stop-color="#c084fc"/>
     </linearGradient>
 
-    <linearGradient id="accent-purple" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#8b5cf6" stop-opacity="0.8"/>
-      <stop offset="100%" stop-color="#ec4899" stop-opacity="0.2"/>
+    <linearGradient id="scanGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#38bdf8" stop-opacity="0"/>
+      <stop offset="50%" stop-color="#38bdf8" stop-opacity="0.75"/>
+      <stop offset="100%" stop-color="#a855f7" stop-opacity="0"/>
     </linearGradient>
 
+    <!-- Soft Glow Filter -->
     <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
-      <feGaussianBlur stdDeviation="8" result="blur" />
-      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+      <feGaussianBlur stdDeviation="8" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
     </filter>
 
-    <filter id="soft-glow" x="-20%" y="-20%" width="140%" height="140%">
-      <feGaussianBlur stdDeviation="4" result="blur" />
-      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    <filter id="shieldGlow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="10" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
     </filter>
+
+    <!-- Cyber Grid Pattern -->
+    <pattern id="cyberGrid" width="30" height="30" patternUnits="userSpaceOnUse">
+      <path d="M 30 0 L 0 0 0 30" fill="none" stroke="#38bdf8" stroke-width="0.5" stroke-opacity="0.12"/>
+      <circle cx="0" cy="0" r="1" fill="#38bdf8" fill-opacity="0.25"/>
+    </pattern>
+
+    <!-- CSS Keyframe Animations -->
+    <style>
+      @keyframes pulseGlow {
+        0%, 100% { filter: drop-shadow(0 0 10px rgba(56, 189, 248, 0.5)); opacity: 0.92; }
+        50% { filter: drop-shadow(0 0 22px rgba(168, 85, 247, 0.85)); opacity: 1; }
+      }
+      @keyframes radarSweep {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+      }
+      @keyframes scanLine {
+        0% { transform: translateY(0px); opacity: 0.15; }
+        50% { opacity: 0.8; }
+        100% { transform: translateY(260px); opacity: 0.15; }
+      }
+      @keyframes circuitDash {
+        0% { stroke-dashoffset: 240; }
+        100% { stroke-dashoffset: 0; }
+      }
+      @keyframes floatNode {
+        0%, 100% { transform: translateY(0px); }
+        50% { transform: translateY(-6px); }
+      }
+      @keyframes beaconRing {
+        0% { r: 12px; opacity: 0.85; stroke-width: 2px; }
+        100% { r: 52px; opacity: 0; stroke-width: 0.5px; }
+      }
+      .pulse-shield { animation: pulseGlow 4s infinite ease-in-out; }
+      .scanner { animation: scanLine 5s infinite linear; }
+      .circuit-line { stroke-dasharray: 10, 10; animation: circuitDash 9s infinite linear; }
+      .radar-sweep { transform-origin: 125px 130px; animation: radarSweep 8s infinite linear; }
+      .floating-node-1 { animation: floatNode 3.5s infinite ease-in-out; }
+      .floating-node-2 { animation: floatNode 4.5s infinite ease-in-out 1s; }
+      .beacon { animation: beaconRing 2.6s infinite cubic-bezier(0.2, 0.8, 0.4, 1); }
+      .title-text { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; font-weight: 800; }
+      .sub-text { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; font-weight: 500; }
+    </style>
   </defs>
 
-  <style>
-    /* Dynamic background grid & particles */
-    @keyframes pulseOrb {
-      0%, 100% { transform: scale(1) translate(0, 0); opacity: 0.35; }
-      50% { transform: scale(1.15) translate(20px, -15px); opacity: 0.65; }
-    }
-    @keyframes floatToken {
-      0%, 100% { transform: translateY(0px); }
-      50% { transform: translateY(-12px); }
-    }
-    @keyframes flowLine {
-      0% { stroke-dashoffset: 400; }
-      100% { stroke-dashoffset: 0; }
-    }
-    @keyframes spinKey {
-      0% { transform: rotate(0deg); }
-      100% { transform: rotate(360deg); }
-    }
-    @keyframes badgePulse {
-      0%, 100% { opacity: 0.85; filter: drop-shadow(0 0 2px rgba(56,189,248,0.4)); }
-      50% { opacity: 1; filter: drop-shadow(0 0 8px rgba(99,102,241,0.8)); }
-    }
+  <!-- Background Base & Grid -->
+  <rect width="960" height="260" fill="url(#bgGrad)" rx="16"/>
+  <rect width="960" height="260" fill="url(#cyberGrid)" rx="16"/>
+
+  <!-- Scanning Line -->
+  <rect class="scanner" x="0" y="0" width="960" height="2" fill="url(#scanGrad)" opacity="0.65"/>
+
+  <!-- Circuit Connector Lines -->
+  <path class="circuit-line" d="M 125 130 L 230 130 L 260 85 L 360 85" fill="none" stroke="#38bdf8" stroke-width="1.5" opacity="0.45"/>
+  <path class="circuit-line" d="M 125 130 L 210 185 L 330 185" fill="none" stroke="#a855f7" stroke-width="1.5" opacity="0.45"/>
+  <path class="circuit-line" d="M 910 55 L 840 55 L 810 95 L 740 95" fill="none" stroke="#38bdf8" stroke-width="1.5" opacity="0.35"/>
+  <path class="circuit-line" d="M 930 205 L 850 205 L 820 165 L 750 165" fill="none" stroke="#818cf8" stroke-width="1.5" opacity="0.35"/>
+
+  <!-- Left Radar & IAM Shield Emblem -->
+  <g transform="translate(10, 0)">
+    <!-- Radar concentric circles -->
+    <circle cx="125" cy="130" r="92" fill="none" stroke="#38bdf8" stroke-width="1" stroke-opacity="0.15" stroke-dasharray="4,4"/>
+    <circle cx="125" cy="130" r="66" fill="none" stroke="#818cf8" stroke-width="1" stroke-opacity="0.25"/>
+    <circle cx="125" cy="130" r="38" fill="none" stroke="#c084fc" stroke-width="1" stroke-opacity="0.3"/>
     
-    .bg-orb-1 { animation: pulseOrb 8s ease-in-out infinite; transform-origin: 200px 100px; }
-    .bg-orb-2 { animation: pulseOrb 10s ease-in-out infinite reverse; transform-origin: 1000px 250px; }
-    .token-flow { stroke-dasharray: 12, 12; animation: flowLine 15s linear infinite; }
-    .float-node-1 { animation: floatToken 5s ease-in-out infinite; }
-    .float-node-2 { animation: floatToken 6s ease-in-out infinite 1s; }
-    .float-node-3 { animation: floatToken 5.5s ease-in-out infinite 2s; }
-    .pulse-badge { animation: badgePulse 3s ease-in-out infinite; }
-  </style>
+    <!-- Radar Pulse Beacon Wave -->
+    <circle class="beacon" cx="125" cy="130" r="12" fill="none" stroke="#38bdf8"/>
 
-  <!-- Deep Base Background -->
-  <rect width="1200" height="360" fill="url(#bg-grad)"/>
-
-  <!-- Background Dynamic Ambient Orbs -->
-  <circle class="bg-orb-1" cx="220" cy="110" r="140" fill="url(#accent-cyan)" />
-  <circle class="bg-orb-2" cx="980" cy="240" r="160" fill="url(#accent-purple)" />
-
-  <!-- Subtle Cyber Tech Grid Pattern -->
-  <g stroke="#334155" stroke-opacity="0.18" stroke-width="1">
-    <line x1="0" y1="60" x2="1200" y2="60" />
-    <line x1="0" y1="120" x2="1200" y2="120" />
-    <line x1="0" y1="180" x2="1200" y2="180" />
-    <line x1="0" y1="240" x2="1200" y2="240" />
-    <line x1="0" y1="300" x2="1200" y2="300" />
-    <line x1="200" y1="0" x2="200" y2="360" />
-    <line x1="400" y1="0" x2="400" y2="360" />
-    <line x1="600" y1="0" x2="600" y2="360" />
-    <line x1="800" y1="0" x2="800" y2="360" />
-    <line x1="1000" y1="0" x2="1000" y2="360" />
-  </g>
-
-  <!-- Animated Identity Federation Circuit Lines (Background Layer) -->
-  <g fill="none" stroke-width="2">
-    <path class="token-flow" stroke="#38bdf8" stroke-opacity="0.5" d="M 120 180 Q 300 80, 600 80 T 1080 180" />
-    <path class="token-flow" stroke="#818cf8" stroke-opacity="0.4" d="M 120 200 Q 300 280, 600 280 T 1080 200" />
-    <path class="token-flow" stroke="#c084fc" stroke-opacity="0.3" d="M 250 320 C 450 140, 750 140, 950 320" />
-  </g>
-
-  <!-- Floating Dynamic Protocol Nodes (Edges / Sides to protect central text) -->
-  <g class="float-node-1" transform="translate(100, 70)">
-    <rect width="110" height="34" rx="17" fill="#1e293b" stroke="#38bdf8" stroke-width="1.5" filter="url(#soft-glow)"/>
-    <text x="55" y="22" fill="#38bdf8" font-size="13" font-weight="600" text-anchor="middle">⚡ SAML 2.0</text>
-  </g>
-
-  <g class="float-node-2" transform="translate(80, 260)">
-    <rect width="125" height="34" rx="17" fill="#1e293b" stroke="#818cf8" stroke-width="1.5" filter="url(#soft-glow)"/>
-    <text x="62" y="22" fill="#a5b4fc" font-size="13" font-weight="600" text-anchor="middle">🛡️ OIDC / OAuth2</text>
-  </g>
-
-  <g class="float-node-3" transform="translate(980, 70)">
-    <rect width="120" height="34" rx="17" fill="#1e293b" stroke="#c084fc" stroke-width="1.5" filter="url(#soft-glow)"/>
-    <text x="60" y="22" fill="#e879f9" font-size="13" font-weight="600" text-anchor="middle">🔄 SCIM 2.0</text>
-  </g>
-
-  <g class="float-node-1" transform="translate(990, 260)">
-    <rect width="120" height="34" rx="17" fill="#1e293b" stroke="#34d399" stroke-width="1.5" filter="url(#soft-glow)"/>
-    <text x="60" y="22" fill="#34d399" font-size="13" font-weight="600" text-anchor="middle">🔑 FIDO2 / MFA</text>
-  </g>
-
-  <!-- Central Visual Shield / Key Emblem behind title (Low contrast backdrop) -->
-  <g transform="translate(600, 70)" opacity="0.12">
-    <polygon points="0,-35 40,-15 40,30 0,55 -40,30 -40,-15" fill="#6366f1" stroke="#38bdf8" stroke-width="4"/>
-  </g>
-
-  <!-- Foreground Title and Content (Clean & High Contrast) -->
-  <!-- Top Badge -->
-  <g class="pulse-badge" transform="translate(600, 68)">
-    <rect x="-165" y="-14" width="330" height="28" rx="14" fill="#1e1b4b" stroke="#6366f1" stroke-width="1.2"/>
-    <text x="0" y="5" fill="#a5b4fc" font-size="12" font-weight="700" letter-spacing="1.5" text-anchor="middle">ENTERPRISE IAM &amp; IDENTITY FEDERATION</text>
-  </g>
-
-  <!-- Main Title -->
-  <text x="600" y="142" text-anchor="middle" font-size="40" font-weight="900" fill="url(#primary-grad)" letter-spacing="-0.5" filter="url(#soft-glow)">
-    Awesome Single Sign-On &amp; IAM
-  </text>
-
-  <!-- Subtitle -->
-  <text x="600" y="184" text-anchor="middle" font-size="17" font-weight="400" fill="#cbd5e1" letter-spacing="0.2">
-    Curated Directory of Cloud Identity Providers, Enterprise SSO &amp; Self-Hosted IAM Architectures
-  </text>
-
-  <!-- Feature / Standard Tags Bar -->
-  <g transform="translate(600, 235)">
-    <!-- Tag 1 -->
-    <g transform="translate(-250, 0)">
-      <rect x="-65" y="-14" width="130" height="28" rx="6" fill="#1e293b" stroke="#475569" stroke-width="1"/>
-      <text x="0" y="5" fill="#94a3b8" font-size="12" font-weight="500" text-anchor="middle">Workforce IAM</text>
+    <!-- Radar Sweep Beam -->
+    <g class="radar-sweep">
+      <path d="M 125 130 L 217 130 A 92 92 0 0 0 125 38 Z" fill="url(#shieldGrad)" opacity="0.12"/>
+      <line x1="125" y1="130" x2="217" y2="130" stroke="#38bdf8" stroke-width="1.5" opacity="0.65"/>
     </g>
-    <!-- Tag 2 -->
-    <g transform="translate(-110, 0)">
-      <rect x="-60" y="-14" width="120" height="28" rx="6" fill="#1e293b" stroke="#475569" stroke-width="1"/>
-      <text x="0" y="5" fill="#94a3b8" font-size="12" font-weight="500" text-anchor="middle">Customer IAM</text>
-    </g>
-    <!-- Tag 3 -->
-    <g transform="translate(35, 0)">
-      <rect x="-70" y="-14" width="140" height="28" rx="6" fill="#1e293b" stroke="#475569" stroke-width="1"/>
-      <text x="0" y="5" fill="#94a3b8" font-size="12" font-weight="500" text-anchor="middle">Zero Trust Access</text>
-    </g>
-    <!-- Tag 4 -->
-    <g transform="translate(200, 0)">
-      <rect x="-80" y="-14" width="160" height="28" rx="6" fill="#1e293b" stroke="#475569" stroke-width="1"/>
-      <text x="0" y="5" fill="#94a3b8" font-size="12" font-weight="500" text-anchor="middle">AI Agent Governance</text>
+
+    <!-- Glowing Shield with Keyhole Icon -->
+    <g class="pulse-shield" transform="translate(93, 92) scale(1.5)">
+      <!-- Shield Outer Shape -->
+      <path d="M 21.5 3 L 5 9.5 C 5 21 12 32 21.5 37 C 31 32 38 21 38 9.5 L 21.5 3 Z" fill="url(#shieldGrad)" filter="url(#shieldGlow)" opacity="0.95"/>
+      <!-- Inner Shield Cutout -->
+      <path d="M 21.5 6 L 8 11.5 C 8 20.5 13.5 29 21.5 33.5 C 29.5 29 35 20.5 35 11.5 L 21.5 6 Z" fill="#090d16" opacity="0.82"/>
+      <!-- Keyhole Symbol inside Shield -->
+      <circle cx="21.5" cy="18" r="3" fill="#38bdf8"/>
+      <polygon points="20,19 23,19 23.8,26 19.2,26" fill="#38bdf8"/>
     </g>
   </g>
 
-  <!-- Bottom Ecosystem Bar -->
-  <text x="600" y="305" text-anchor="middle" font-size="13" font-weight="500" fill="#64748b" letter-spacing="0.5">
-    SAML 2.0 • OpenID Connect (OIDC) • OAuth 2.0 • SCIM 2.0 • Passkeys (FIDO2/WebAuthn) • LDAP Federation
-  </text>
+  <!-- Central Title & Descriptions -->
+  <g transform="translate(265, 0)">
+    <!-- Top Pill Tag -->
+    <g class="floating-node-1" transform="translate(0, 32)">
+      <rect x="0" y="0" width="270" height="25" rx="12.5" fill="#1e1b4b" stroke="#6366f1" stroke-width="1.2" opacity="0.9"/>
+      <circle cx="14" cy="12.5" r="4" fill="#22c55e"/>
+      <text x="26" y="16.5" fill="#a5b4fc" font-size="11" class="sub-text" letter-spacing="1.2">ENTERPRISE IDENTITY &amp; SSO</text>
+    </g>
+
+    <!-- Main Title -->
+    <text x="0" y="100" fill="url(#textGrad)" font-size="31" class="title-text" letter-spacing="0.5">
+      Awesome Single Sign-On &amp; IAM
+    </text>
+
+    <!-- Subtitle -->
+    <text x="0" y="136" fill="#f1f5f9" font-size="14.5" class="sub-text">
+      Curated Federation of Cloud Identity Providers, SSO &amp; Self-Hosted IdPs
+    </text>
+
+    <!-- Feature Pillars / Badges -->
+    <g transform="translate(0, 168)">
+      <!-- Pill 1: SAML 2.0 / OIDC -->
+      <rect x="0" y="0" width="138" height="28" rx="6" fill="#0f172a" stroke="#38bdf8" stroke-width="1" stroke-opacity="0.5"/>
+      <text x="69" y="18" fill="#bae6fd" font-size="11.5" text-anchor="middle" class="sub-text">⚡ SAML 2.0 / OIDC</text>
+
+      <!-- Pill 2: SCIM Provisioning -->
+      <rect x="148" y="0" width="138" height="28" rx="6" fill="#0f172a" stroke="#818cf8" stroke-width="1" stroke-opacity="0.5"/>
+      <text x="217" y="18" fill="#c7d2fe" font-size="11.5" text-anchor="middle" class="sub-text">🔄 SCIM Provisioning</text>
+
+      <!-- Pill 3: Passkeys / MFA -->
+      <rect x="296" y="0" width="138" height="28" rx="6" fill="#0f172a" stroke="#c084fc" stroke-width="1" stroke-opacity="0.5"/>
+      <text x="365" y="18" fill="#e9d5ff" font-size="11.5" text-anchor="middle" class="sub-text">🔑 Passkeys / MFA</text>
+
+      <!-- Pill 4: AI Agent IAM -->
+      <rect x="444" y="0" width="138" height="28" rx="6" fill="#0f172a" stroke="#34d399" stroke-width="1" stroke-opacity="0.5"/>
+      <text x="513" y="18" fill="#a7f3d0" font-size="11.5" text-anchor="middle" class="sub-text">🤖 AI Agent IAM</text>
+    </g>
+
+    <!-- Protocol Sub-footer -->
+    <text x="2" y="224" fill="#64748b" font-size="11" class="sub-text" letter-spacing="0.4">
+      OAuth 2.0 • LDAP Federation • Zero Trust Access • FIDO2/WebAuthn • Headless CIAM
+    </text>
+  </g>
+
+  <!-- Right Decorative Floating Identity Nodes -->
+  <g class="floating-node-2" transform="translate(820, 50)">
+    <circle cx="50" cy="35" r="18" fill="#1e1b4b" stroke="#38bdf8" stroke-width="1.5" opacity="0.85"/>
+    <text x="50" y="41" font-size="15" text-anchor="middle">🔐</text>
+    
+    <circle cx="15" cy="105" r="16" fill="#1e1b4b" stroke="#a855f7" stroke-width="1.5" opacity="0.85"/>
+    <text x="15" y="111" font-size="13" text-anchor="middle">🛡️</text>
+    
+    <circle cx="75" cy="120" r="15" fill="#1e1b4b" stroke="#10b981" stroke-width="1.5" opacity="0.85"/>
+    <text x="75" y="125" font-size="12" text-anchor="middle">⚡</text>
+
+    <!-- Node Connector Lines -->
+    <line x1="50" y1="35" x2="15" y2="105" stroke="#6366f1" stroke-width="1.2" stroke-dasharray="3,3" opacity="0.5"/>
+    <line x1="50" y1="35" x2="75" y2="120" stroke="#38bdf8" stroke-width="1.2" stroke-dasharray="3,3" opacity="0.5"/>
+  </g>
+
+  <!-- Outer Border Gradient Stroke -->
+  <rect x="1" y="1" width="958" height="258" fill="none" stroke="url(#textGrad)" stroke-width="1.5" rx="15" opacity="0.4"/>
 </svg>
